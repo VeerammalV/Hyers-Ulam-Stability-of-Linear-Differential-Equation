@@ -1,0 +1,828 @@
+\documentclass[a4paper,12pt]{report}
+\pagestyle{headings}
+\setlength{\textheight}{8.67in}
+\setlength{\textwidth}{5.8in}
+\setlength{\topmargin}{-3mm}
+\setlength{\headsep}{40pt}
+\setlength{\oddsidemargin}{1.5cm}
+\setlength{\evensidemargin}{-3mm}
+\usepackage{amscd}
+%\usepackage{sectsty}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{epsfig}
+%\pagestyle{empty}
+\usepackage{graphicx}
+\def\convf{\hbox{\space \raise-2mm\hbox{$\textstyle     \stackrel{k_1}{\rightleftharpoons}\atop \scriptstyle k_{-1}$} \space}}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\begin{document}
+		\fontsize{15pt}{22pt}\selectfont
+	%\linespread{1}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\thispagestyle{empty}	
+	\begin{center}
+		{\textbf{ \Large
+				Hyers-Ulam Stability of Linear Differential Equation
+				}}
+	\end{center}
+	
+	
+	
+	%\vskip .1in
+	\begin{center}
+		{\mbox{ {\large \textbf{Dissertation submitted  to Periyar University in partial fulfillment}}}}
+		{\mbox{{\large  \textbf{ of the  requirements for the award of the degree of}}}}
+		
+		\vskip .2in
+		
+		\mbox{\textbf{\large MASTER OF SCIENCE }} \\
+		\mbox{\textbf{\large IN }}\\
+		\mbox{\textbf{ \large MATHEMATICS}}
+		
+	\end{center}
+	\vspace{.3cm}
+	\begin{center}
+		
+		\mbox{ \LARGE Submitted by}
+		
+		\vspace{.5cm}
+		
+		\mbox{ {\large\textbf{V. VEERAMMAL}}}\\
+		
+		\mbox{ {\large\textbf{ Reg. No: U21PG518MAT037   }}}
+		
+		\vspace{.3cm} 
+		\mbox{ {\textbf{\large Under the guidance of  }}}
+		
+		\mbox{ {\textbf{\large Dr.P. PRAKASH}}}
+		
+		\mbox{ {\textbf{\large  Professor}}}
+		%\vskip .1in
+	\end{center}	
+	\begin{center}
+		\includegraphics[width=0.2\textwidth]{pu.JPG}
+	\end{center}
+	%\vskip .1in
+	\begin{center}
+		\begin{large}
+			\mbox{\textbf{ Department of Mathematics }}\\
+			\mbox{\textbf{ Periyar University}}\\
+			\mbox{\textbf{ Periyar Palkalai Nagar} }\\
+			\mbox{ \textbf{Salem 636 011}}\\
+			%\mbox{\Nlarge Tamil Nadu, India}\\
+		\end{large}
+		\vskip .2in
+		
+		\mbox{\textbf{\large May 2023}}
+	\end{center}\newpage\thispagestyle{empty}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\begin{center}
+		\textbf{CERTIFICATE}
+	\end{center}
+	\begin{sloppypar}
+	This is to certify that the dissertation entitled \textbf{`` HYERS-ULAM STABILITY OF LINEAR DIFFERENTIAL EQUATION''} submitted in partial fulfillment of the requirements for the award of the degree of \textbf{Master of  Science  in Mathematics} to the Periyar University, Salem is a  bonafide record of the dissertation  work carried out by \textbf{ V. VEERAMMAL (Reg. No: U21PG518MAT037)} under my supervision and guidance in the academic year 2022-2023 and that no part of the dissertation has been submitted for the award of any degree, diploma, fellowship or other similar titles to any university.\\
+	\end{sloppypar}
+	\vskip .3in
+	
+	\noindent{{\bf Date :}} \hfill{{\bf Signature of the Guide}}\\
+	\noindent{{\bf Place :}}
+	\vskip  3.5cm
+	
+	
+	
+	\noindent{{\bf \ \ \ \ \ Signature of the \\ Head of the Department}} \hfill{{\bf External Examiner}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\newpage\thispagestyle{empty}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%Declaration%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{center}
+		\textbf{DECLARATION}
+	\end{center}\vspace{0.5cm}
+\begin{sloppypar}
+	\ \ \ \ \ I, \textbf{ V. VEERAMMAL}, hereby declare that the dissertation, \\entitled {\bf ``HYERS-ULAM STABILITY OF LINEAR \linebreak DIFFERENTIAL EQUATION''} submitted to the Periyar University, Salem in partial fulfillment of the requirements for the award of the degree of \textbf{Master of Science in Mathematics}, is a bonafide record of the dissertation work done by me during 2022-2023 under the guidance of  \ \textbf{Dr.P. PRAKASH},  Professor, Department of Mathematics, Periyar University, Salem.
+	\end{sloppypar}
+	\vskip  2.5cm
+	\noindent{{\bf Date :}} \hfill{{\bf Signature of the Candidate}}
+	
+	\vskip  0.1cm
+	\noindent{{\bf Place :}}
+	\hfill (\textbf{V. VEERAMMAL}) \hspace{0.cm}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%Acknowledgement%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	\newpage\thispagestyle{empty}
+	\begin{center}
+		\textbf{ACKNOWLEDGEMENT}
+	\end{center}
+	%First and foremost, I owe my gratitude to the \textbf{lord almighty} for showering his infinite blessing in completing this dissertation.
+	\begin{sloppypar}
+	 I  express  my   deep   sense   of   gratitude  and indebtedness \linebreak to
+	my guide,\  \textbf{Dr.P. PRAKASH}, Professor, Department of \linebreak Mathematics,
+	Periyar University, Salem, who has been a steady
+	source of motivation and help throughout.  I am really grateful to
+	him for his invaluable guidance, encouragement and
+	suggestions at each and every stage of this dissertation.\\
+	
+	I wish to acknowledge my sincere thanks to \textbf{Dr.C. Selvaraj}, \linebreak Professor and Head; \textbf{Dr.A. Muthusamy}, Professor; \linebreak \textbf{Dr.V. Muthulakshmi}, Professor;  \textbf{Dr.S. Karthikeyan},  Assistant \linebreak Professor; \textbf{Dr.S. Padmasekaran}, Assistant Professor; \linebreak \textbf{Dr.M. Sambath}, Assistant Professor; Non-teaching staffs and Research scholars of Department of Mathematics, Periyar University, Salem.\\
+	\end{sloppypar}
+	\begin{sloppypar}
+	I also express my thanks to my \textbf{friends and well-wishers} for their full cooperation and help. I would like to express heartful thanks to my family members for their encouragement and constant help.\\ 
+	\end{sloppypar}
+	
+	
+	\hfill \textit{$($\textbf{VEERAMMAL. V }$)$}
+	\fontsize{15pt}{22pt}\selectfont
+	\linespread{1.5}
+	\clearpage
+	\newtheorem{Rem}{Remark}[section]
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{cor}{Corollary}[section]
+	\newtheorem{Lem}{Lemma}[section]
+	\newtheorem{Pro}{Proposition}[section]
+	\newtheorem{Ass}{Assumption}[section]
+	\newtheorem{Con}{Conclusion}[section]
+	\newtheorem{defn}{Definition}[section]
+	\newtheorem{ex}{Example}[section]
+	%\pagestyle{myheadings}
+	
+	\tableofcontents
+	\thispagestyle{empty}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\theoremstyle{definition}
+	
+	\newtheorem{note}{Note}
+	\newtheorem*{note*}{Note}
+	\newtheorem*{solution*}{Solution}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\clearpage
+	\pagenumbering{arabic}
+	%\pagestyle{empty}
+	%\pagestyle{headings}
+	\setcounter{page}{1}
+	\setcounter{chapter}{0}
+	\chapter{Introduction}
+	\quad The stability  problem of functional equations originated from a \linebreak question of Stainslaw Ulam, in 1940 concerning the stability of group homomorphisms. Hyers was the first researcher who gave the \linebreak affirmative partial answer to Ulam's question. This type of \linebreak stability is known as ``Hyers-Ulam" stability. In 1940, on a talk given at Winsconsin University, S. M. Ulam posed the following \linebreak
+	problem: ``Under  what  conditions   does there exist an additive \linebreak mapping near an  approximately additive   mapping?". A year later, D. H. Hyers gave an answer to the problem of Ulam for additive \linebreak functions defined on Banach spaces. \\
+	\indent ``Let $E_1,E_2$  be two real Banach spaces and $\epsilon>0$.  Then for every mapping f : $E_1 \rightarrow E_2$ satisfying 
+	\begin{eqnarray}
+		\Vert {f(x+y) - f(x) - f(y)} \Vert \le \epsilon
+	\end{eqnarray}
+for all x,y $\in$ $E_1$ there exists a unique additive mapping g :$E_1 \rightarrow E_2$ with the property
+\begin{eqnarray}
+	 \Vert f(x) - g(x) \Vert \le \epsilon,  \quad \forall x \in E_1."
+\end{eqnarray}
+\indent After Hyers result many papers dedicated to this topic, extending Ulam's problem to other funtional equation and generalizing Hyers result in various directions, were published [3,4,6,7,10,20].\\
+\indent  A new direction of research in the stability theory of functional equations, called Hyers-Ulam stability, was opened by the papers of Aoki and Rassias by considering instead of $\epsilon$ in (1.1) a function \linebreak depending on x and y [2,21]. C. Alsina and R. Ger were the first \linebreak authors who investigated the Hyers-Ulam stability of a differential \linebreak equation [1] and they have proved that for every differentiable \linebreak mapping f : I $\rightarrow$ $\mathbb{R}$ satisfying  $\vert$$f^{\prime}(x)$ - f(x)$\vert$ $\le$ $\epsilon$ for every x $\in$ I, where $\epsilon>0$ is a given number and I is an open interval of $\mathbb{R}$, there exists a \linebreak differentiable function g : I $\rightarrow$ $\mathbb{R}$ with the property $g^{\prime}(x$) = g(x) and $\vert${f(x) - g(x)}$\vert$ $\le$ 3$\epsilon$ for all x $\in$ I. The result of Alsina and Ger was \linebreak extended by Miura, Miyajima and Takahasi [15,16,24] and by \linebreak Takahasi, Takagi, Miura and Miyajima [25] to the Hyers-Ulam  \linebreak stability of the first order linear differential equation and linear  \linebreak differential equation of higher order with constant coefficients.  \linebreak 
+\indent Furthermore S. M. Jung [11,13] has obtained results on the \linebreak stability of linear differential equations extending the results of \linebreak Takahasi, Takagi and Miura. I. A. Rus has proved some results on the stability of differential and integral equations using Gronwall lemma and the technique of weakly Picard operators [22,23]. Recently G. Wang, M. Zhou, L. Sun [27] and Y. Li, Y. Shen [14] proved the Hyers - \linebreak Ulam  stability of the linear differential equation of the first order and the linear differential equation of the second order with constant   \linebreak coefficients by using the method of integral factor.\\
+\indent An extension of the results given in [12,14,16] was obtained by\\ D. S. Cimpean and D. Popa in the case of the linear differential  \linebreak equation of n-th order with constant coefficients. The goal of this  \linebreak paper is to improve to the results obtained by Takahasi, Takagi, Miura and Jung for the stability of the linear differential equation [12,15,16,25] and the results obtained by D. S. Cimpean and D. Popa in [5].\\
+\indent In what follows I = (a,b), a,b $\in$ $\mathbb{R}$$\cup$$\{\pm\infty\}$, is an open interval  \linebreak in $\mathbb{R}$, c $\in$ [a,b], C $\in$ $\bar{\mathbb{R}}$, (X,$\Vert$$\cdot$$\Vert$) is a Banach space over the field K  \linebreak (K is one of the fields $\mathbb{R}$ or $\mathbb{C}$), f $\in$ C(I,X), $\lambda$ $\in$ C(I,K) and \linebreak $\epsilon$ $\in$ C(I,$\mathbb{R}$) with $\epsilon$ $\ge$ 0. We deal with the stability of the linear \linebreak differential equation.
+\begin{eqnarray} 
+y^{\prime}(x)-\lambda(x) y(x)-f(x), \quad x \in I, 
+\end{eqnarray}
+and the stability of the linear differential equation of high order with constant coeffficients.
+
+\chapter{Preliminaries}
+\section{Definitions}
+
+\begin{defn}
+	Let $\varphi$ : I $\rightarrow$ [0,$\infty$) be a given mapping. Eq.(1.3) is said to be stable in Aoki-Rassias sense if there exists a mapping \linebreak $\psi$ : I $\rightarrow$ [0,$\infty$), depending only on $\varphi$ and Eq.(1.3), such that for every function y $\in$ $C^1(I,X)$ satisfying the relation 
+	\begin{eqnarray}
+	\Vert y'(x) - \lambda(x)y(x) - f(x) \Vert \le \psi(x), \quad x \in I,
+	\end{eqnarray}
+	there exists a solution u $\in$ $C^1(I,X)$ of Eq.(1.3) such that
+	\begin{eqnarray}
+		\Vert y(x) - u(x) \Vert \le \psi(x), \quad  x \in I.
+	\end{eqnarray}
+\indent In the case where $\psi$ and $\varphi$ are constant functions Eq.(1.3) is called stable in Hyers-Ulam sense. In other words Eq.(1.3) is stable in Aoki-Rassias (or Hyers-Ulam) sense if for every solution of the \linebreak pertubated problem (1.4) there exists a solution of Eq.(1.3) that is close to it. The results on Hyers-Ulam stability of functional equations are in connection with the notion of shadowing and pertubation  of a dynamical system [17-19]. 
+\end{defn}	
+\begin{defn}
+	 In what follows $\Re$z we denote the real part \linebreak of the complex number z. For a function g : (a,b) $\rightarrow$ X define \linebreak $g(b)=$ $\lim _{x \rightarrow b} g(x)$  and $g(a)=\lim _{x \rightarrow a} g(x)$, if the limits exist. Let $L \in C^{1}(I, K)$ be an antiderivative of $\lambda$, i.e. $L^{\prime}=\lambda$ on $I$. Define $\psi_{c}: I \rightarrow \mathbb{R}$ by
+	 \begin{eqnarray}
+	 	\psi_{c}(x)=e^{\Re L(x)}\left|\int_{c}^{x} e^{-\Re L(t)} \varepsilon(t) d t\right|.
+	 \end{eqnarray}
+ 	If $c \in\{a, b\}$ then we suppose that the integral which defines $\psi_{c}$ is convergent for every $x \in I$. Therefore $\psi_{c}(c)=0$ for all C $\in$ I.
+\end{defn}	
+\begin{Lem}
+	 The general solution of the equation
+	 \begin{eqnarray}
+	 	y^{\prime}(x)-\lambda(x) y(x)=f(x), \quad x \in I
+	 \end{eqnarray}
+ is given by
+ \begin{eqnarray}
+ 		y(x)=e^{L(x)}\left(\int_{x_{0}}^{x} f(t) e^{-L(t)} d t+k\right)
+ \end{eqnarray}
+	where $x_{0} \in I$ and $k \in X$ is an arbitrary constant.
+	The first result on Aoki-Rassias stability for a first order linear differential equation is contained in the Theorem 3.0.1 .
+\end{Lem}	
+\begin{cor}
+	 For every $y \in C^{1}(I, X)$ satisfying
+	 $$ \left\{\begin{array}{l}
+	 	\left\|y^{\prime}(x)-\lambda(x) y(x)-f(x)\right\| \le \varepsilon(x), \quad x \in I, \\
+	 	y(c)=C,
+	 \end{array}\right. $$
+  there exists a unique solution $u \in C^{1}(I, X)$ of the Cauchy problem
+ $$\left\{\begin{array}{l}
+ 	u^{\prime}(x)-\lambda(x) u(x)-f(x)=0, \\
+ 	u(c)=C,
+ \end{array} \quad x \in I,\right.$$ with the property
+ $$\|y(x)-u(x)\| \le \psi_{c}(x), \quad x \in I .$$
+ The result obtained in Theorem 3.0.1 is more general than the result of Lemma 2.1.1 in [5] and Theorem 1 in [12] since it gives a better estimation of the difference between the approximate solution and the exact solution of Eq.(2.4). This is obvious in the cases $c=a$ and $c=b$, but for $c \in(a, b)$ this better approximation is not always valid on the entire interval $(a, b)$. We will show in the next example that in some cases this estimation is global for $c \in(a, b)$ and we will find the optimal $\psi_{c}$.
+\end{cor}	
+\begin{Rem}
+	Now, let $\lambda$ be constant with $\Re \lambda \neq 0$. Then \\ $L(x)=\lambda x$ and
+	\begin{eqnarray}
+		\left\|\psi_{\tilde{c}}\right\|_{\infty}=|\theta| \cdot \frac{\left|e^{b \Re \lambda}-e^{a \Re \lambda}\right|}{e^{b \Re \lambda}+e^{a \Re \lambda}}
+	\end{eqnarray}
+Taking now an arbitrary $\delta>0$ and $\theta=\frac{\delta}{|\Re \lambda|}$ it is easy to check that
+$$\left\|\psi_{\tilde{c}}\right\|_{\infty}<\frac{\delta}{|\Re \lambda|}\left(1-e^{-|\Re(\lambda)|(b-a)}\right)$$
+if $a, b \in \mathbb{R}$ and 
+$$\left\|\psi_{\tilde{c}}\right\|_{\infty}=\frac{\delta}{|\mathfrak{R} \lambda|}$$
+if $a=-\infty$ or $b=+\infty$, therefore we improve the result obtained in [5, Corollary 2.4], along all interval $I$ in the case of classical Hyers-Ulam stability.
+More precisely we have the following result.
+\end{Rem}	
+\begin{cor}
+	Suppose that $\lambda \in \mathbb{C}, \hspace{0.1cm} \Re \lambda \neq 0$ and $\delta \ge 0$. Then for every $y \in C^{1}(I, X)$ satisfying
+	$$\left\|y^{\prime}(x)-\lambda y(x)-f(x)\right\| \le \delta, \quad x \in I,$$
+	there exists a unique solution of (2.4) such that 
+	$$\|y(x)-u(x)\| \le \begin{cases}\frac{\delta}{\vert \Re \lambda \vert} \cdot \frac{\left|e^{b \Re \lambda}-e^{a \Re \lambda}\right|}{e^{b \Re \lambda}+e^{a \Re \lambda}}, & \text { if } a, b \in \mathbb{R}, \\ \frac{\delta}{\mid \Re \lambda \vert}, & \text { if } a=-\infty \text { or } b=+\infty .\end{cases} $$
+	Example 3.0.1 and Corollary 2.4 from [5] do not give an answer to the stability problem of Eq.(2.4) in the case where $\lambda$ is a constant and $\Re \lambda=0$. We solve this problem in the following theorems.
+\end{cor}
+\begin{Rem}
+	According to Theorem 3.0.1, Eq.(2.4) is stable in Aoki-Rassias sense in this content, with $\psi$ = $\delta$$\vert$x-c$\vert$. Theorem 3.0.3 shows that if the stability is achieved with a certain function $\bar{\psi}$, then 
+	$$\sup _{x \in I}\|\tilde{\psi}(x)\|=\infty.$$
+\end{Rem}		
+
+\section{Stability of the linear differential equation of higher order}	
+\quad  The results proved in the previous theorems and corollaries lead to stability of the linear differential equation with constant coefficients. We will improve in what follows the results obtained in [16] and [5] for this equation. Suppose that $(X,\|\cdot\|)$ is a Banach space over $\mathbb{C}$ and $a_{0}, a_{1}, \ldots, a_{n-1} \in \mathbb{C}, n \ge 1$, are given numbers. We study the stability of the linear differential equation	
+\begin{eqnarray}
+	y^{(n)}(x)-\sum_{j=0}^{n-1} a_{j} y^{(j)}(x)=f(x), \quad x \in I.
+\end{eqnarray}
+Let 
+\begin{eqnarray}
+	P(z)=z^{n}-\sum_{j=0}^{n-1} a_{j} z^{j}
+\end{eqnarray}
+be the characteristic polynomial of Eq.(2.7) and denote by $r_{1}, r_{2}, \ldots, r_{n}$ the complex roots of (2.8). For $\lambda \in \mathbb{C}$ and $c \in[a, b]$ define
+\begin{eqnarray}
+	\phi_{\lambda}(h)(x)=e^{\Re(\lambda) x}\left|\int_{c}^{x} e^{-\Re(\lambda) t} h(t) d t\right|, \quad x \in I
+\end{eqnarray}
+for all $h$ with the property that the integral from the right-hand side of (2.9) is convergent. We suppose that $\phi_{r_{k}} \circ \phi_{r_{k-1}} \circ$ $\cdots \circ \phi_{r_{1}}(\varepsilon)$ exist for every $k \in\{1,2, \ldots, n\}$ if $c=a$ or $c=b$. 
+\begin{Rem}
+ The uniqueness of the solution $u$ in Theorem 3.0.4 holds if its characteristic polynomial $P$ has not pure imaginary roots and $I=\mathbb{R}$  ([16]).
+\end{Rem}
+
+\chapter{Main Results}	
+\begin{thm}
+For every $y \in C^{1}(I, X)$ satisfying
+\begin{eqnarray}
+	\left\|y^{\prime}(x)-\lambda(x) y(x)-f(x)\right\| \le \varepsilon(x), \quad x \in I
+\end{eqnarray}
+there exists a unique solution $u \in C^{1}(I, X)$ of Eq.(2.4) with  the \linebreak property
+\begin{eqnarray}
+	\|y(x)-u(x)\| \le \psi_{c}(x), \quad x \in I
+\end{eqnarray}
+\begin{proof}
+	 Existence. Let $y \in C^{1}(I, X)$ satisfy (3.1) and define
+	 \begin{eqnarray}
+	 	g(x)=y^{\prime}(x)-\lambda(x) y(x)-f(x), \quad x \in I.
+	 	\end{eqnarray}
+ 	Then, according to Lemma 2.1.1, it follows
+ 	$$ y(x)=e^{L(x)}\left(\int_{x_{0}}^{x} e^{-L(t)} f(t) d t+\int_{x_{0}}^{x} e^{-L(t)} g(t) d t+k\right),\hspace{0.2cm} x_{0} \in I, k \in X . $$
+ 	Let $G: I \rightarrow X$ be given by
+ 	\begin{eqnarray}
+ 		 G(x)=\int_{c}^{x} e^{-L(t)} g(t) d t, \quad x \in I.
+ 	\end{eqnarray}
+ If $c \in\{a, b\}$ the integral which defines $G$ is convergent since
+ $$ \|g(t)\| \le \varepsilon(t) \quad \text { for all } t \in I . $$
+ Now let $u$ be defined by
+ $$u(x)=e^{L(x)}\left(\int_{x_{0}}^{x} f(t) e^{-L(t)} d t+k-G\left(x_{0}\right)\right) .
+ $$
+ Then obviously $u$ satisfies Eq.(2.4) and we get
+ $$
+ \begin{aligned}
+ 	\|y(x)-u(x)\| & =e^{\Re L(x)}\left\|\int_{x_{0}}^{x} g(t) e^{-L(t)} d t+G\left(x_{0}\right)\right\|=e^{\Re L(x)}\|G(x)\| \\
+ 	& \le e^{\Re L(x)}\left|\int_{c}^{x}\left\|e^{-L(t)} g(t)\right\|\right| d t \\
+ 	& \le e^{\Re L(x)}\left|\int_{c}^{x} e^{-\Re L(t)} \varepsilon(t) d t\right| \\
+ 	& =\psi_{c}(x), \quad x \in I .
+ \end{aligned}
+ $$
+ Therefore the existence is proved. \\
+ Uniqueness. Suppose that for a $y$ satisfying (3.1) there exist \linebreak $u_{1}, u_{2}, u_{1} \neq u_{2}$, satisfying (2.4) and (3.2). Then
+  $$
+ u_{j}(x)=e^{L(x)}\left(\int_{x_{0}}^{x} f(t) e^{-L(t)} d t+k_{j}\right),\hspace{0.2cm} k_{j} \in X, j=1,2, k_{1} \neq k_{2},
+ $$
+ and
+ $$
+ \begin{aligned}
+ 	e^{\Re L(x)}\left\|k_{1}-k_{2}\right\| & =\left\|u_{1}(x)-u_{2}(x)\right\| \\
+ 	& \le\left\|u_{1}(x)-y(x)\right\|+\left\|y(x)-u_{2}(x)\right\| \\
+ 	& \le 2 e^{\Re L(x)}\left|\int_{c}^{x} e^{-\Re L(t)} \varepsilon(t) d t\right|
+ \end{aligned}
+ $$for all $x \in I$. Therefore
+$$
+ \left\|k_{1}-k_{2}\right\| \le 2\left|\int_{c}^{x} e^{-\Re L(t)} \varepsilon(t) d t\right|, \quad x \in I .
+ $$
+ Now letting $x \rightarrow c$ in the above inequality it follows $k_{1}=k_{2}$, \linebreak contradiction. 
+\end{proof}
+\end{thm}
+\noindent Theorem 3.0.1 leads to the following result for the Cauchy problem \linebreak of Eq.(2.4).
+\begin{thm}
+Let $a, b \in \mathbb{R}, \lambda=\alpha i, \alpha \in \mathbb{R}$ and $y \in C^{1}(I, X)$ such that
+\begin{eqnarray}
+	\left\|y^{\prime}(x)-\alpha i y(x)-f(x)\right\| \le \delta, \quad x \in I,
+\end{eqnarray}
+for some positive $\delta$. Then there exists $u \in C^{1}(I, X)$ such that $$
+u^{\prime}(x)-\alpha i u(x)-f(x)=0 \quad \text { for all } x \in I $$ and
+\begin{eqnarray}
+	 \|y(x)-u(x)\| \le \delta(b-a), \quad x \in I,
+\end{eqnarray}
+i.e., Eq.(2.4) is stable in Hyers-Ulam sense. 
+\begin{proof}
+Define $g(x)=y^{\prime}(x)-\alpha i y(x)-f(x), x \in I$. Then
+$$ y(x)=e^{i \alpha x}\left(\int_{x_{0}}^{x} f(t) e^{-i \alpha t} d t+\int_{x_{0}}^{x} g(t) e^{-i \alpha t} d t+k\right), \quad x \in I, $$
+where $x_{0} \in I$ and $k \in X$. Let $u$ be given by $$
+u(x)=e^{i \alpha x}\left(\int_{x_{0}}^{x} f(t) e^{-i \alpha t} d t+k\right), \quad x \in I . $$
+We get
+$$ \|y(x)-u(x)\|=\left\|\int_{x_{0}}^{x} g(t) e^{-i \alpha t} d t\right\| \le\left|\int_{x_{0}}^{x} \delta d t\right| \le \delta(b-a), \quad x \in I .
+$$	
+\end{proof}	
+\end{thm}
+\begin{thm}
+	Suppose that $a=-\infty$ or $b=\infty, \lambda=\alpha i, \alpha \in \mathbb{R}$. Then there exists $y \in C^{1}(I, X)$ satisfying
+	\begin{eqnarray}
+		\left\|y^{\prime}(x)-\alpha i y(x)-f(x)\right\| \le \delta, \quad x \in I 
+	\end{eqnarray}
+such that for every $u \in C^{1}(I, X)$ with the property \\ $u^{\prime}(x)-\alpha i u(x)-f(x)=0, x \in I$, we get
+\begin{eqnarray}
+\sup _{x \in I}\|y(x)-u(x)\|=\infty
+\end{eqnarray}
+i.e., the equation is not stable in Hyers-Ulam sense. \\
+\begin{proof}
+	Let $y$ be a solution of the equation
+	$$y^{\prime}(x)-\alpha i y(x)-f(x)=\delta e^{i \alpha x} k, \quad x \in I$$
+	where $k \in X$ is fixed, with $\|k\|=1$.
+	According to Lemma 2.1.1, \linebreak $y$ is given by
+	$$
+	y(x)=e^{i \alpha x}\left(\int_{x_{0}}^{x} f(t) e^{-i \alpha t} d t+\delta\left(x-x_{0}\right) k+k_{1}\right), \quad k_{1} \in X, x \in I,
+	$$
+	and an arbitrary solution $u$ of (2.4) for $\lambda=\alpha i$ is of the form
+	$$
+	u(x)=e^{i \alpha x}\left(\int_{x_{0}}^{x} f(t) e^{-i \alpha t} d t+k_{2}\right), \quad k_{2} \in X, x \in I
+	$$
+	The relation $(3.7)$ is satisfied, but
+	$$
+	\sup _{x \in I}\|y(x)-u(x)\|=\sup _{x \in I}\left\|\delta\left(x-x_{0}\right) k+k_{1}-k_{2}\right\|=\infty . $$
+\end{proof}
+\end{thm}
+ \begin{thm}
+	For every $y \in C^{n}(I, X)$ with the property
+	\begin{eqnarray}
+		\left\|y^{(n)}(x)-\sum_{j=0}^{n-1} a_{j} y^{(j)}(x)-f(x)\right\| \le \varepsilon(x), \quad x \in I,
+	\end{eqnarray}
+there exists a solution of Eq.(2.7) such that
+\begin{eqnarray}
+	 \|y(x)-u(x)\| \le \phi_{r_{n}} \circ \phi_{r_{n-1}} \circ \cdots \circ \phi_{r_{1}}(\varepsilon)(x), \quad x \in I.
+\end{eqnarray}
+\begin{proof}
+	The proof by induction is analogous to the proof of Theorem 2.3 in [5].
+	
+	For $n=1$, Theorem 3.0.4 holds in virtue of Theorem 3.0.1.
+	
+	Now suppose that Theorem 3.0.4 holds for an $n \in \mathbb{N}$. We have to prove that for all $y \in C^{n+1}(I, X)$ satisfying the relation
+	\begin{eqnarray}
+	\left\|y^{(n+1)}(x)-\sum_{j=0}^{n} a_{j} y^{(j)}(x)-f(x)\right\| \le \varepsilon(x), \quad \forall x \in I,
+	\end{eqnarray}
+there exists a solution $u \in C^{n+1}(I, X)$ satisfying
+\begin{eqnarray}
+	u^{(n+1)}(x)-\sum_{j=0}^{n} a_{j} u^{(j)}(x)-f(x)=0, \quad \forall x \in I,
+\end{eqnarray}
+such that
+\begin{eqnarray}
+	\|y(x)-u(x)\| \le \phi_{r_{n+1}} \circ \phi_{r_{n}} \circ \cdots \circ \phi_{r_{1}}(\varepsilon)(x), \quad \forall x \in I.
+\end{eqnarray}
+Let $y \in C^{n+1}(I, X)$ be a mapping satisfying (3.11). According to Vieta's relations we get 
+$$
+ \begin{aligned}
+ 	\|y^{(n+1)}(x)-&
+ 	\left(r_1+\cdots+r_{n+1}\right)
+ 	y^{(n)}(x)+\cdots\\
+ 	&+(-1)^{n+1}r_1r_2 \dots
+ 	r_{n+1}y(x)-f(x) \| \le
+ 	\varepsilon(x)
+ \end{aligned}
+$$
+or
+\begin{align}
+		\Vert\left(y^{(n+1)}(x)\right. &
+		\left.-r_{n+1}y^{(n)}(x)\right)-
+		\left(r_1+\cdots+r_n\right)\left(
+		y^{(n)}(x)-r_{n+1} y^{(n-1)}
+		(x)\right) \nonumber\\
+		&  +\cdots+(-1)^{n} r_{1} \cdots r_n\left(y^{\prime}(x)-r_{n+1} y(x)\right)\nonumber\\
+		&-f(x)\Vert \le \varepsilon(x), \quad x \in I .
+	\end{align}
+Let $z$ be given by
+$$ z=y^{\prime}-r_{n+1} y . $$
+Then (3.14) becomes
+$$
+\begin{aligned}
+	\|z^{(n)}(x)-&
+	\left(r_1+\cdots+r_{n}\right)
+	z^{(n-1)}(x)+\cdots\\
+	&+(-1)^{n}r_1r_2 \dots
+	r_{n}z(x)-f(x) \| \le
+	\varepsilon(x)
+\end{aligned}
+$$
+for all $x \in I$. Therefore, in virtue of the induction hypothesis, there exists a $v$ such that
+$$
+v^{(n)}(x)-\left(r_{1}+\cdots+r_{n}\right) v^{(n-1)}(x)+\cdots+(-1)^{n} r_{1} \cdots r_{n} v(x)=f(x),  x \in I,
+$$
+and
+$$
+\|z(x)-v(x)\| \le \phi_{r_{n}} \circ \cdots \circ \phi_{r_{1}}(\varepsilon)(x), \quad x \in I,
+$$
+which is equivalent to
+$$
+\left\|y^{\prime}(x)-r_{n+1}(x) y(x)-v(x)\right\| \le \phi_{r_{n}} \circ \cdots \circ \phi_{r_{1}}(\varepsilon)(x) .
+$$
+From Theorem 3.0.1 it follows that there exists a unique mapping $u \in C^{1}(I, X)$ such that
+\begin{eqnarray}
+	u^{\prime}(x)-r_{n+1} u(x)-v(x)=0, \quad x \in I
+\end{eqnarray}
+and
+$$
+\|y(x)-u(x)\| \le \phi_{r_{n+1}} \circ \phi_{r_{n}} \circ \cdots \circ \phi_{r_{1}}(\varepsilon)(x), \quad x \in I .
+$$
+Finally, from the properties of $u$ and $v$, \hspace{0.1cm} $u$ satisfies (3.7). The theorem is proved.
+\end{proof}
+\end{thm}
+\begin{thm}
+	Let $\delta$ be a positive number and suppose that all the roots of the characteristic equation (2.8) have the property $\Re r_{k} \neq 0$, $1 \leqslant k \leqslant n$. Then for every mapping $y \in C^{n}(I, X)$ satisfying the relation
+	$$
+	\left\|y^{(n)}(x)-\sum_{j=0}^{n-1} a_{j} y^{(j)}(x)-f(x)\right\| \leqslant \delta, \quad x \in I,
+	$$
+	there exists a solution $u \in C^{n}(I, X)$ of the equation
+	$$
+	y^{(n)}(x)-\sum_{j=0}^{n-1} a_{j} y^{(j)}(x)-f(x)=0, \quad x \in I,
+	$$
+	such that
+	$$
+	\|y(x)-u(x)\| \leqslant L
+	$$
+	where
+	$$L= \begin{cases}\delta \cdot \prod_{k=1}^{n} \frac{1}{\left|\Re r_{k}\right|} \cdot \frac{\left|e^{b \Re r_{k}}-e^{a \Re r_{k}}\right|}{e^{b \Re r_{k}}+e^{a \Re r_{k}}}, & \text { if } a, b \in \mathbb{R}, \\ \frac{\delta}{\prod_{k=1}^{n}\left|\Re r_{k}\right|}, & \text { if } a=-\infty \text { or } b=+\infty .\end{cases}
+	$$
+	\begin{proof}
+		The proof follows analogously to the proof of Theorem 3.0.4 taking account of Corollary 2.1.2.
+	\end{proof}
+	\end{thm}
+\begin{ex}
+	 Let $\theta \in \mathbb{R} \backslash\{0\}$ and $\varepsilon(x)=\theta \Re \lambda(x), \hspace{0.1cm} x \in I$. Then
+	$$
+	\psi_{c}(x)=|\theta| \cdot\left|1-e^{\Re(L(x)-L(c))}\right|, \quad x \in I .
+	$$
+	\begin{proof}
+	First we consider the case $\theta>0$, \hspace{0.1cm} i.e., $\Re \lambda(x) \ge 0$ for all $x \in I$. Then
+	$$
+	\Re L^{\prime}(x) \ge 0, \quad x \in I
+	$$
+	hence $\Re L$ is increasing on $I$,
+	$$
+	\psi_{c}(x)=\theta \cdot \begin{cases}e^{\Re L(x)-\Re L(c)}-1, & x \in[c, b), \\ 1-e^{\Re L(x)-\Re L(c)}, & x \in(a, c),\end{cases}
+	$$
+	and
+	$$
+	\left\|\psi_{c}\right\|_{\infty}=\theta \max \left\{e^{\Re(L(b)-L(c))}-1,1-e^{\Re(L(a)-L(c))}\right\}
+	$$
+	Obviously, if the real part of $L$ is upper bounded, $\left\|\psi_{c}\right\|_{\infty}$ is minimum for $e^{\Re(L(b)-L(c))}-1=1-e^{\Re(L(a)-L(c))}$, i.e.
+	$$
+	e^{\Re L(c)}=\frac{e^{\Re L(a)}+e^{\Re L(b)}}{2}
+	$$
+	The relation from above gives $\tilde{c}$ optimal, therefore the following \linebreak estimation holds
+	$$
+	\|y-u\|_{\infty} \le \left\|\psi_{\tilde{c}}\right\|_{\infty}
+	$$
+	where
+	$$
+	\left\|\psi_{\tilde{c}}\right\|_{\infty}=\theta\left(e^{\Re(L(b)-L(\tilde{c}))}-1\right)=\theta \cdot \frac{e^{\Re L(b)}-e^{\Re L(a)}}{e^{\Re L(b)}+e^{\Re L(a)}}
+	$$
+	\begin{eqnarray}
+		i.e., \quad
+		\min _{c \in I}\left\|\psi_{c}\right\|_{\infty}=\theta \cdot \frac{e^{\Re L(b)}-e^{\Re L(a)}}{e^{\Re L(b)}+e^{\Re L(a)}}
+	\end{eqnarray}
+The case $\theta<0$ leads analogously to
+$$
+\min _{c \in I}\left\|\psi_{c}\right\|_{\infty}=-\theta \cdot \frac{e^{\Re L(a)}-e^{\Re L(b)}}{e^{\Re L(b)}+e^{\Re L(a)}}
+$$
+therefore for all $\theta \in \mathbb{R} \backslash\{0\}$ we have
+$$ \left\|\psi_{\tilde{c}}\right\|_{\infty}=|\theta| \cdot \frac{\left|e^{\Re L(b)}-e^{\Re L(a)}\right|}{e^{\Re L(b)}+e^{\Re L(a)}}. $$ 
+	\end{proof}
+\end{ex}
+\begin{thm}
+If $f(x)$ is an approximately linear transformation from $E$ into $E^{\prime}$, then there is a linear transformation $\varphi(x)$ near $f(x)$. And $\operatorname{such} \varphi(x)$ is unique.
+\begin{proof}
+In generalizing the definition of Hyers, we shall call a \linebreak transformation $f(x)$ from $E$ into $E^{\prime}$ and there exists $K(\geq 0)$ and $p(0 \le p<1)$ such that
+$$
+\|f(x+y)-f(x)-f(y)\| \le K\left(\|x\|^{P}+\|y\|^{P}\right)
+$$
+for any $x$ and $y$ in $E$. \\
+\indent Let $f(x)$ and $\varphi(x)$ be transformations from $E$ into $E^{\prime}$ and there exists $K(\geq 0)$ and $p(0 \le p>1)$ such that
+$$
+\|f(x)-\varphi(x)\| \le K\|x\|^{P}
+$$
+for any $x$ in $E$.
+By the assumption there are $K_{0}(\geq 0)$ \linebreak and $p(0 \le p<1)$ such that
+\begin{eqnarray}
+\|f(2 x) / 2-f(x)\| \le K_{0}\|x\|^{P}
+\end{eqnarray}
+We shall now prove that
+\begin{eqnarray}
+\left\|f\left(2^{n} x\right) / 2^{n}-f(x)\right\| \le K_{0}\|x\|^{p} \sum_{i=0}^{n-1} 2^{i(p-1)}
+\end{eqnarray}
+for any integer $n$. The case $n=1$ holds by (3.17). Assuming the case
+$$
+\left\|f\left(2^{n} .2 x\right) / 2^{n}-f(2 x)\right\| \le K_{0}\|x\|^{P} 2^{P} \sum_{i=0}^{n-1} 2^{i(P-1)}
+$$
+That is,
+$$
+\left\|f\left(2^{n+1} x\right) / 2^{n}-f(2 x)\right\| \le K_{0}\|x\|^{P} \sum_{i=1}^{n} 2^{i(P-1)}
+$$
+By (3.17)
+$$
+\begin{aligned}
+	& \left\|f\left(2^{n+1} x\right) / 2^{n+1}-f(x)\right\| \le\left\|f\left(2^{n+1} x\right) / 2^{n+1}-f(2 x) / 2\right\| \\
+	& \indent \indent \indent \indent +\|f(2 x) / 2-f(x)\| \leq K_{0}\|x\|^{p} \sum_{i=0}^{n} 2^{i(P-i)}
+\end{aligned}
+$$
+Thus we get (3.18) for the case $(n+1)$. Hence (3.18) holds for any $n$.
+Since $0 \le p<1, \sum_{i=0}^{\infty} 2^{i(P-1)}$ converges to $2 /\left(2-2^{P}\right)$. Therefore (3.18) becomes
+\begin{eqnarray}
+\left\|f\left(2^{n} x\right) / 2^{n}-f(x)\right\| \le K\|x\|^{P}, \hspace{0.3cm} K=2 K_{0} /\left(2-2^{P}\right)
+\end{eqnarray}
+Let us consider the sequence $\left(f\left(2^{n} x\right) / 2^{n}\right)$. We have
+$$
+\begin{aligned}
+	\left\|f\left(2^{m} x\right) / 2^{m}-f\left(2^{n} x\right) / 2^{n}\right\|=\left\|f\left(2^{m} x\right) / 2^{m-n}-f\left(2^{n} x\right)\right\| / 2^{n} \\
+	<K\left\|2^{n} x\right\|^{P} / 2^{n}=2^{n(P-1)} K\|x\|^{P} \rightarrow 0(n \rightarrow \infty) .
+\end{aligned}
+$$
+Since $E^{\prime}$ is complete, the sequence in consideration converges.\\ We put
+$$
+\varphi(x) \equiv \lim f\left(2^{n} x\right) / 2^{n}
+$$
+Then $\varphi(x)$ is linear. For, by the approximate linearity of $f(x)$ 
+\begin{align}
+	\left\|f\left(2^{n}(x+y)\right)-f\left(2^{n} x\right)-f\left(2^{n} y\right)\right\|\nonumber &\leq K_{0}\left(\left\|2^{n} x\right\|^{P}+\left\|2^{n} y\right\|^{P}\right)\nonumber\\&=2^{n P} K_{0}\left(\|x\|^{P}+\|y\|^{P}\right). \nonumber
+	\end{align} 
+Dividing both sides by $2^{n}$ and letting $n \rightarrow \infty$, we get
+$$
+\varphi(x+y)=\varphi(x)+\varphi(y)
+$$
+which shows that $\varphi$ is linear. In (3.19), letting $n \rightarrow \infty$, we get
+\begin{eqnarray}
+\|\varphi(x)-f(x)\| \le K\|x\|^{r}
+\end{eqnarray}
+which shows that $\varphi(x)$ is near $f(x)$. \\
+\indent It remains to prove the unicity of $\varphi(x)$. Let $\psi\left(x^{\prime}\right)$ be another linear transformation near $f(x)$. Then there exist $K^{\prime}(\le 0)$ and  \linebreak $p^{\prime}(0 \le$ $\left.p^{\prime}<1\right)$ such that
+\begin{eqnarray}
+\|\psi(x)-f(x)\| \le K^{\prime}\|x\|^{P}
+\end{eqnarray}
+By (3.20) we have,
+$$
+\|\varphi(x)-\psi(x)\| \le K\|x\|^{P}+K^{\prime}\|x\|^{P}
+$$
+By the linearity of $\varphi$ and $\psi$,
+$$
+\begin{aligned}
+	\|\varphi(x)-\psi(x)\| & =\|\varphi(n x)-\psi(n x)\| / n \\
+	& \leq\left(K\|n x\|^{P}+K^{\prime}\|n x\|^{P^{\prime}}\right) / n \\
+	& =K\|x\|^{P} / n^{1-P}+K^{\prime}\|x\|^{P^{\prime}} / n^{1-P^{\prime}} \rightarrow 0(n \rightarrow \infty) .
+\end{aligned}
+$$
+Therefore $\varphi(x)=\psi(x)$.
+\end{proof}	
+\end{thm}
+\begin{thm}
+Let $f: G \rightarrow X$ be such that
+\begin{eqnarray}
+\|f(x+y)-f(x)-f(y)\| \le \varphi(x, y), \text { for all } x, y \in G \text {. }
+\end{eqnarray}
+Then there exists a unique mapping $T: G \rightarrow X$ such that
+\begin{eqnarray}
+T(x+y)=T(x)+T(y), \quad \text { for all } x, y \in G,
+\end{eqnarray}
+and
+\begin{eqnarray}
+\|f(x)-T(x)\| \le \frac{1}{2} \tilde{\varphi}(x, x), \text { for all } x \in G \text.
+\end{eqnarray}
+\begin{proof}
+ For $x=y$ inequality (3.22) implies
+$$
+\|f(2 x)-2 f(x)\| \le \varphi(x, x) .
+$$
+Thus
+\begin{eqnarray}
+\left\|2^{-1} f(2 x)-f(x)\right\| \le \frac{1}{2} \varphi(x, x) \text { for all } x \in G .
+\end{eqnarray}
+Replacing $x$ by $2 x$, inequality (3.25) gives
+\begin{eqnarray}
+\left\|2^{-1} f\left(2^2 x\right)-f(2 x)\right\| \le \frac{1}{2} \varphi(2 x, 2 x) \text { for all } x \in G .
+\end{eqnarray}
+From (3.25) and (3.26) it follows that
+$$
+\begin{aligned}
+	\left\|2^{-2} f\left(2^2 x\right)-f(x)\right\| & \le\left\|2^{-2} f\left(2^2 x\right)-2^{-1} f(2 x)\right\| \\
+	& \quad \quad +\left\|2^{-1} f(2 x)-f(x)\right\| \\
+	& \le 2^{-1} \frac{1}{2} \varphi(2 x, 2 x)+\frac{1}{2} \varphi(x, x) .
+\end{aligned}
+$$
+Hence
+\begin{eqnarray}
+\left\|2^{-2} f\left(2^2 x\right)-f(x)\right\| \le \frac{1}{2}\left[\varphi(x, x)+\frac{1}{2} \varphi(2 x, 2 x)\right]
+\end{eqnarray}
+for all $x \in G$.
+Replacing $x$ by $2 x$, inequality (3.27) becomes
+$$
+\left\|2^{-2} f\left(2^3 x\right)-f(2 x)\right\| \le \frac{1}{2}\left[\varphi(2 x, 2 x)+\frac{1}{2} \varphi\left(2^2 x, 2^2 x\right)\right],
+$$
+and therefore
+$$
+\begin{aligned}
+	\left\|2^{-3} f\left(2^3 x\right)-f(x)\right\| & \le\left\|2^{-3} f\left(2^3 x\right)-2^{-1} f(2 x)\right\|\\&\quad\quad \quad +\left\|2^{-1} f(2 x)-f(x)\right\| \\
+	& \le 2^{-1} \frac{1}{2}\left[\varphi(2 x, 2 x)+\frac{1}{2} \varphi\left(2^2 x, 2^2 x\right)\right]\\
+	& \quad \quad \quad +\frac{1}{2} \varphi(x, x) .
+\end{aligned}
+$$
+Thus
+\begin{eqnarray}
+\begin{array}{l}
+\noindent \left\|2^{-3} f\left(2^3 x\right)-f(x)\right\| \\
+	\quad \le \frac{1}{2}\left[\varphi(x, x)+\frac{1}{2} \varphi(2 x, 2 x)+\frac{1}{2^2} \varphi\left(2^2 x, 2^2 x\right)\right]
+\end{array}
+\end{eqnarray}
+for all $x \in G$.
+Applying an induction argument to $n$ we obtain
+\begin{eqnarray}
+\left\|2^{-n} f\left(2^n x\right)-f(x)\right\| \le \frac{1}{2} \sum_{k=0}^{n-1} 2^{-k} \varphi\left(2^k x, 2^k x\right)
+\end{eqnarray}
+for all $x \in G$.
+Indeed,
+$$
+\begin{aligned}
+	\left\|2^{-(n+1)} f\left(2^{n+1} x\right)-f(x)\right\| \le & \left\|2^{-(n+1)} f\left(2^{n+1} x\right)-2^{-1} f(2 x)\right\| \\
+	& \quad\quad +\left\|2^{-1} f(2 x)-f(x)\right\|,
+\end{aligned}
+$$
+and with (3.29) and (3.25) we obtain
+$$
+\begin{aligned}
+	\left\|2^{-(n+1)} f\left(2^{n+1} x\right)-f(x)\right\| & \le 2^{-1} \frac{1}{2} \sum_{k=0}^{n-1} 2^{-k} \varphi\left(2^{k+1} x, 2^{k+1} x\right)\\ 
+	& \quad \quad \quad  +\frac{1}{2} \varphi(x, x) \\
+	& =\frac{1}{2} \sum_{k=0}^n 2^{-k} \varphi\left(2^k x, 2^k x\right) .
+\end{aligned}
+$$
+We claim that the sequence $\left\{2^{-n} f\left(2^n x\right)\right\}$ is a Cauchy sequence. Indeed, for $n>m$ we have
+$$
+\begin{aligned}
+	\left\|2^{-n} f\left(2^n x\right)-2^{-m} f\left(2^m x\right)\right\| & =2^{-m}\left\|2^{-(n-m)} f\left(2^{n-m} 2^m x\right)-f\left(2^m x\right)\right\| \\
+	& \le 2^{-m} \frac{1}{2} \sum_{k=0}^{n-m-1} 2^{-k} \varphi\left(2^{k+m} x, 2^{k+m} x\right) \\
+	& =\frac{1}{2} \sum_{p=m}^{n-1} 2^{-p} \varphi\left(2^p x, 2^p x\right) .
+\end{aligned}
+$$
+Taking the limit as $m \rightarrow \infty$ we obtain
+$$
+\lim _{m \rightarrow \infty}\left\|2^{-n} f\left(2^n x\right)-2^{-m} f\left(2^m x\right)\right\|=0 .
+$$
+Because of the fact that $X$ is a Banach space it follows that the sequence $\left\{2^{-n} f\left(2^n x\right)\right\}$ converges.
+Denote
+$$
+T(x)=\lim _{n \rightarrow \infty} \frac{f\left(2^n x\right)}{2^n}.
+$$
+We claim that $T$ satisfies (3.23).
+From (3.22) we have
+$$
+\left\|f\left(2^n x+2^n y\right)-f\left(2^n x\right)-f\left(2^n y\right)\right\| \le \varphi\left(2^n x, 2^n y\right)
+$$
+for all $x, y \in G$. Therefore
+\begin{eqnarray}
+&\left\|2^{-n} f\left(2^n x+2^n y\right)-2^{-n} f\left(2^n x\right)-2^{-n} f\left(2^n y\right)\right\|\nonumber \\&\quad\quad\quad\le 2^{-n} \varphi\left(2^n x, 2^n y\right).
+\end{eqnarray}
+Using the equation given below
+$$\tilde{\varphi}(x,y)=\sum_{k=0}^{\infty} 2^{-k} \varphi\left(2^kx,2^ky\right)<\infty $$
+we have
+$$
+\lim _{n \rightarrow \infty} 2^{-n} \varphi\left(2^n x, 2^n y\right)=0
+$$
+Then (3.30) implies
+$$
+\|T(x+y)-T(x)-T(y)\|=0 .
+$$
+To prove (3.24), taking the limit in (3.29) as $n \rightarrow \infty$, we obtain
+$$
+\|T(x)-f(x)\| \le \frac{1}{2} \bar{\varphi}(x, x), \text { for all } x \in G .
+$$
+It remains to show that $T$ is uniquely defined. Let $F: G \rightarrow X$ be another such mapping with
+$$
+F(x+y)=F(x)+F(y)
+$$
+and (3.24) satisfied.\\
+Then
+$$
+\begin{aligned}
+	\|T(x)-F(x)\| & =\left\|2^{-n} T\left(2^n x\right)-2^{-n} F\left(2^n x\right)\right\| \\
+	& \le\left\|2^{-n} T\left(2^n x\right)-2^{-n} f\left(2^n x\right)\right\|\\&\quad\quad+\left\|2^{-n} f\left(2^n x\right)-2^{-n} F\left(2^n x\right)\right\| \\
+	& \le 2^{-n} \frac{1}{2} \tilde{\varphi}\left(2^n x, 2^n x\right)+2^{-n} \frac{1}{2} \tilde{\varphi}\left(2^n x, 2^n x\right) \\
+	& =2^{-n} \tilde{\varphi}\left(2^n x, 2^n x\right) \\
+	& =2^{-n} \sum_{k=0}^{\infty} 2^{-k} \varphi\left(2^{k+n} x, 2^{k+n} x\right) \\
+	& =\sum_{p=n}^{\infty} 2^{-p} \varphi\left(2^p x, 2^p x\right) .
+\end{aligned}
+$$
+Thus
+\begin{eqnarray}
+\|T(x)-F(x)\| \le \sum_{p=n}^{\infty} 2^{-p} \varphi\left(2^p x, 2^p x\right)\  \text {for all } x \in G.
+\end{eqnarray}
+Taking the limit in (3.31) as $n \rightarrow \infty$ we obtain$$
+T(x)=F(x) \text { for all } x \in G.
+$$
+\end{proof}
+\end{thm}
+
+\chapter{Applications}
+Hyers-Ulam stability of linear differential equations has several \linebreak applications in various fields of mathematics and physics. Here we discuss some of the applications of Hyers-Ulam stability:\\\\
+\textbf{Control theory}: In control theory, the stability of a system is of utmost importance. Hyers-Ulam stability of linear differential \linebreak equations provides a tool to analyze the stability of a control \linebreak system with a known differential equation. This helps in designing \linebreak controllers that maintain the stability of the system.\\\\
+\textbf{Numerical analysis}: Hyers-Ulam stability of linear differential \linebreak equations is also used in numerical analysis. The stability of a \linebreak numerical method used to solve a differential equation can be \linebreak analyzed using Hyers-Ulam stability. This helps in selecting \linebreak appropriate numerical methods to obtain accurate solutions.\\\\
+\textbf{Mathematical physics}: Hyers-Ulam stability of linear differential equations is used in mathematical physics to analyze the stability of physical systems. For example, the stability of a quantum system \linebreak can be analyzed using Hyers - Ulam stability of the Schrodinger \linebreak equation.
+\\\\
+\textbf{Differential geometry}: Hyers-Ulam stability of linear differential \linebreak equations has applications in differential geometry. It is used to study the stability of solutions to linear partial differential equations on manifolds.
+\\\\
+\textbf{Mathematical biology}: Hyers-Ulam stability of linear differential \linebreak equations is also used in mathematical biology to model biological \linebreak phenomena such as population dynamics, epidemic spread, and  \linebreak biochemical reactions. The stability of the models can be analyzed using Hyers-Ulam stability to make predictions about the behavior of the system.\\
+Overall, Hyers-Ulam stability of linear differential equations is an important tool in various branches of mathematics and physics, and its applications are wide-ranging.
+\pagebreak
+\chapter{Conclusion}
+\hspace{0.5cm} In this dissertation, we have presented some results on generalized Hyers-Ulam stability of the linear differential equation in a Banach space. As a consequence, we improved some known estimates of the difference between the pertubated and the exact solutions. The results proved in this dissertation are novel. Illustrations are provided at the end of each theorem for  better understanding of each theorem.
+
+\begin{thebibliography}
+\quad  \bibitem{1}C. Alsina, R. Ger, On some inequalities and stability results \linebreak related to the exponential function, \textit{J. Inequal. Appl. $2 (1998)$\linebreak $373-380$.}
+
+\bibitem{2}T. Aoki, On the stability of the linear transformations in \linebreak Banach spaces, \textit{J. Math. Soc. Japan $2 (1950) 64-66$.}
+
+\bibitem{3}J. Brzdek, On the quotient stability of a family of functional equations, \textit{Nonlinear Anal. $71$ $(2009)$ $4396-4404$.}
+
+\bibitem{4}J. Brzdek, D. Popa, B. Xu, The Hyers-Ulam stability of \linebreak nonlinear recurrences, \textit{J. Math. Anal. Appl. $335 (2007) 443-449$.}
+
+\bibitem{5}D.S. Cimpean, D. Popa, On the stability of the linear differential equation of higher order with constant coefficients, \textit{Appl. Math. Comput. $217 (2010)$ \textit{$4141-4146$.}}
+
+\bibitem{6}S. Czerwik, Functional Equations and Inequalities in Several Variables, \textit{World Scientific, $2002$.}
+
+\bibitem{7}G. L. Forti, Comments on the core of the direct method for proving Hyers-Ulam stability of functional equations, \textit{J. Math. Anal. Appl.$ 295 (2004)$ $127-133$.}
+
+\bibitem{8}D. H. Hyers, On the stability of the linear functional equation, \textit{Proc. Natl. Acad. Sci. USA $27$$ (1941)$ $222-224$.}
+
+\bibitem{9}D. H. Hyers, G. Isac, Th. M. Rassias, Stability of Functional Equations in Several Variables, \textit{Birkhauser, Basel, $1998$.}
+
+\bibitem{10}S. M. Jung, Hyers-Ulam-Rassias Stability of Functional Equations in Mathematical Analysis, \textit{Hadronic Press, Palm Harbor, $2001$.}
+
+\bibitem{11}S. M. Jung, Hyers-Ulam stability of linear differential  equation of the first order (III), \textit{J. Math. Anal. Appl.$ 311$ $(2005)$ $139-146$.}
+
+\bibitem{12}S. M. Jung, Hyers-Ulam stability of linear differential equations of first order (II), \textit{Appl. Math. Lett. $19$ $(2006) 854-858$.}
+
+\bibitem{13}S. M. Jung, Hyers-Ulam stability of a system of first order linear differential equations with constant coefficients, \textit{J. Math. Anal. Appl.$ 320 (2006) 549-561$.}
+
+\bibitem{14}Y. Li, Y. Shen, Hyers-Ulam stability of linear differential \linebreak equations of second order, \textit{Appl. Math. Lett.$ 23$ $(2010) 306-309$.}
+
+\bibitem{15}T. Miura, S. Miyajima, S. E. Takahasi, A characterization of Hyers-Ulam stability of first order linear differential operators, \linebreak \textit{J. Math. Anal. Appl. $286 (2003)$ $136-146$.}
+
+\bibitem{16}T. Miura, S. Miyajima, S. E. Takahasi, Hyers-Ulam stability of linear differential operator with constant coefficients, \textit{Math. Nachr. $258 (2003) 90-96$.}
+
+\bibitem{17}J. Moser, Stable and Random Motions in Dynamical Systems, \textit{Princeton University Press, Princeton, NJ, $2000$.}
+
+\bibitem{18}K. Palmer, Shadowing in Dynamical Systems, Kluwer \linebreak \textit{Academic Press, $2000$.}
+
+\bibitem{19}S. Pilyugin, Shadowing in Dynamical Systems, \textit{Lecture Notes in Math., vol. $1706$, Springer-Verlag, $1999$.}
+
+\bibitem{20}D. Popa, Hyers-Ulam-Rassias stability of a linear recurrence, \linebreak \textit{J. Math. Anal. Appl. $309 (2005) 591-597$.}
+
+\bibitem{21}Th. M. Rassias, On the stability of the linear mapping in \linebreak Banach spaces, \textit{Proc. Amer. Math. Soc. $72 (1978)$ $297-300$.}
+
+\bibitem{22}I. A. Rus, Remarks on Ulam stability of the operatorial \linebreak equations, \textit{Fixed Point Theory $10 (2009) 305-320$.}
+
+\bibitem{23}I. A. Rus, Ulam stability of ordinary differential equations, \textit{Stud. Univ. Babeş-Bolyai Math. $54 (2009)$ $125-134$.}
+
+\bibitem{24}S. E. Takahasi, T. Miura, S. Miyajima, On the Hyers-Ulam \linebreak stability of the Banach space-valued differential equation \linebreak $y^{\prime}=\lambda y$, \textit{Bull. Korean Math. Soc. $39$ $(2002) 309-315$.}
+
+\bibitem{25}S. E. Takahasi, H. Takagi, T. Miura, S. Miyajima, The Hyers-Ulam stability constants of first order linear differential \linebreak operators, \textit{J. Math. Anal. Appl.$ 296 (2004) 403-409$.}
+
+\bibitem{26}S. M. Ulam, A Collection of Mathematical Problems,  \textit{Interscience, New York, $1960$.}
+
+\bibitem{27}G. Wang, M. Zhou, L. Sun, Hyers-Ulam stability of linear \linebreak differential equations of first order, \textit{Appl. Math. Lett.$ 21 (2008) 1024-1028$.}
+\end{thebibliography}
+\end{document}
